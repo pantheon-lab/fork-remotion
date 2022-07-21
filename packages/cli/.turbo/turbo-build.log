@@ -1,5 +1,5 @@
-[35m@remotion/cli:build: [0mcache hit, replaying output [2me0d9a290b8b208a7[0m
-[35m@remotion/cli:build: [0m
-[35m@remotion/cli:build: [0m> @remotion/cli@3.1.3 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/cli
-[35m@remotion/cli:build: [0m> tsc -d
-[35m@remotion/cli:build: [0m
+[36m@remotion/cli:build: [0mcache hit, replaying output [2mcb9d3266e5d6f8a7[0m
+[36m@remotion/cli:build: [0m
+[36m@remotion/cli:build: [0m> @remotion/cli@3.1.4 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/cli
+[36m@remotion/cli:build: [0m> tsc -d
+[36m@remotion/cli:build: [0m

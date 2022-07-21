@@ -1,5 +1,5 @@
-[32m@remotion/eslint-config:build: [0mcache hit, replaying output [2m07dd59cab5ec50e0[0m
+[32m@remotion/eslint-config:build: [0mcache hit, replaying output [2m7737cada948451d5[0m
 [32m@remotion/eslint-config:build: [0m
-[32m@remotion/eslint-config:build: [0m> @remotion/eslint-config@3.1.3 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/eslint-config
+[32m@remotion/eslint-config:build: [0m> @remotion/eslint-config@3.1.4 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/eslint-config
 [32m@remotion/eslint-config:build: [0m> tsc -d
 [32m@remotion/eslint-config:build: [0m

@@ -1,10 +1,10 @@
-[32m@remotion/lambda:build: [0mcache hit, replaying output [2ma508b53077e8f496[0m
+[32m@remotion/lambda:build: [0mcache hit, replaying output [2m319eefd7755e7e12[0m
 [32m@remotion/lambda:build: [0m
-[32m@remotion/lambda:build: [0m> @remotion/lambda@3.1.3 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/lambda
+[32m@remotion/lambda:build: [0m> @remotion/lambda@3.1.4 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/lambda
 [32m@remotion/lambda:build: [0m> tsc -d && pnpm run buildlambda
 [32m@remotion/lambda:build: [0m
 [32m@remotion/lambda:build: [0m
-[32m@remotion/lambda:build: [0m> @remotion/lambda@3.1.3 buildlambda /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/lambda
+[32m@remotion/lambda:build: [0m> @remotion/lambda@3.1.4 buildlambda /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/lambda
 [32m@remotion/lambda:build: [0m> ts-node src/admin/bundle-lambda.ts
 [32m@remotion/lambda:build: [0m
 [32m@remotion/lambda:build: [0mLambda bundled

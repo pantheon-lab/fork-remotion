@@ -19,7 +19,7 @@ const routes_1 = require("./routes");
 const startServer = async (entry, userDefinedComponent, options) => {
     var _a, _b, _c, _d;
     const tmpDir = await fs_1.default.promises.mkdtemp(path_1.default.join(os_1.default.tmpdir(), 'react-motion-graphics'));
-    const config = bundler_1.BundlerInternals.webpackConfig({
+    const [, config] = bundler_1.BundlerInternals.webpackConfig({
         entry,
         userDefinedComponent,
         outDir: tmpDir,

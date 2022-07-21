@@ -27,6 +27,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.webpackConfig = void 0;
+const crypto_1 = require("crypto");
 const react_dom_1 = __importDefault(require("react-dom"));
 const remotion_1 = require("remotion");
 const webpack_1 = __importStar(require("webpack"));
@@ -50,7 +51,7 @@ function truthy(value) {
     return Boolean(value);
 }
 const webpackConfig = ({ entry, userDefinedComponent, outDir, environment, webpackOverride = (f) => f, onProgressUpdate, enableCaching = remotion_1.Internals.DEFAULT_WEBPACK_CACHE_ENABLED, envVariables, maxTimelineTracks, entryPoints, }) => {
-    return webpackOverride({
+    const conf = webpackOverride({
         optimization: {
             minimize: false,
         },
@@ -65,12 +66,6 @@ const webpackConfig = ({ entry, userDefinedComponent, outDir, environment, webpa
             aggregateTimeout: 0,
             ignored: ['**/.git/**', '**/node_modules/**'],
         },
-        cache: enableCaching
-            ? {
-                type: 'filesystem',
-                name: (0, webpack_cache_1.getWebpackCacheName)(environment),
-            }
-            : false,
         devtool: environment === 'development'
             ? 'cheap-module-source-map'
             : 'cheap-module-source-map',
@@ -108,7 +103,6 @@ const webpackConfig = ({ entry, userDefinedComponent, outDir, environment, webpa
             hashFunction: 'xxhash64',
             globalObject: 'this',
             filename: 'bundle.js',
-            path: outDir,
             devtoolModuleFilenameTemplate: '[resource-path]',
             assetModuleFilename: environment === 'development' ? '[path][name][ext]' : '[hash][ext]',
         },
@@ -173,5 +167,23 @@ const webpackConfig = ({ entry, userDefinedComponent, outDir, environment, webpa
             ],
         },
     });
+    const hash = (0, crypto_1.createHash)('md5').update(JSON.stringify(conf)).digest('hex');
+    return [
+        hash,
+        {
+            ...conf,
+            cache: enableCaching
+                ? {
+                    type: 'filesystem',
+                    name: (0, webpack_cache_1.getWebpackCacheName)(environment, hash),
+                    version: hash,
+                }
+                : false,
+            output: {
+                ...conf.output,
+                path: outDir,
+            },
+        },
+    ];
 };
 exports.webpackConfig = webpackConfig;

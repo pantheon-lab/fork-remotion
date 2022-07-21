@@ -48,7 +48,8 @@ async function selectAsync(questions, options) {
                         if (!this.choices[next].disabled)
                             break;
                     }
-                    if (!this.choices[next].disabled && next !== this.cursor) {
+                    if (!this.choices[next].disabled &&
+                        next !== this.cursor) {
                         this.moveCursor(next);
                         this.render();
                     }
@@ -67,7 +68,8 @@ async function selectAsync(questions, options) {
                         if (!this.choices[next].disabled)
                             break;
                     }
-                    if (!this.choices[next].disabled && next !== this.cursor) {
+                    if (!this.choices[next].disabled &&
+                        next !== this.cursor) {
                         this.moveCursor(next);
                         this.render();
                     }

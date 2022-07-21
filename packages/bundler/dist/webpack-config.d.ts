@@ -10,4 +10,4 @@ export declare const webpackConfig: ({ entry, userDefinedComponent, outDir, envi
     envVariables: Record<string, string>;
     maxTimelineTracks: number;
     entryPoints: string[];
-}) => WebpackConfiguration;
+}) => [string, WebpackConfiguration];

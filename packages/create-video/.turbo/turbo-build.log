@@ -1,5 +1,5 @@
-[35mcreate-video:build: [0mcache hit, replaying output [2m39153abd2e8646d7[0m
-[35mcreate-video:build: [0m
-[35mcreate-video:build: [0m> create-video@3.1.3 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/create-video
-[35mcreate-video:build: [0m> tsc -d
-[35mcreate-video:build: [0m
+[32mcreate-video:build: [0mcache hit, replaying output [2m4f1891cc4e46159d[0m
+[32mcreate-video:build: [0m
+[32mcreate-video:build: [0m> create-video@3.1.4 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/create-video
+[32mcreate-video:build: [0m> tsc -d
+[32mcreate-video:build: [0m

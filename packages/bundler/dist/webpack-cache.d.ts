@@ -1,4 +1,5 @@
 declare type Environment = 'development' | 'production';
+declare type CacheState = 'exists' | 'other-exists' | 'does-not-exist';
 declare global {
     namespace NodeJS {
         interface ProcessVersions {
@@ -6,7 +7,7 @@ declare global {
         }
     }
 }
-export declare const clearCache: (environment: Environment) => Promise<void>;
-export declare const getWebpackCacheName: (environment: Environment) => string;
-export declare const cacheExists: (environment: Environment) => boolean;
+export declare const clearCache: () => Promise<void>;
+export declare const getWebpackCacheName: (environment: Environment, hash: string) => string;
+export declare const cacheExists: (environment: Environment, hash: string) => CacheState;
 export {};

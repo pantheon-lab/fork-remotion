@@ -170,9 +170,6 @@ const displayNameForEditor = {
 };
 const getDisplayNameForEditor = (editor) => {
     var _a, _b;
-    if (!editor) {
-        return null;
-    }
     const endsIn = Object.keys(displayNameForEditor).find((displayNameKey) => {
         return editor.endsWith(displayNameKey);
     });

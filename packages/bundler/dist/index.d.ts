@@ -13,10 +13,16 @@ export declare const BundlerInternals: {
         envVariables: Record<string, string>;
         maxTimelineTracks: number;
         entryPoints: string[];
-    }) => webpack.Configuration;
+    }) => [string, webpack.Configuration];
     indexHtml: (staticHash: string, baseDir: string, editorName: string | null, inputProps: object | null) => string;
-    cacheExists: (environment: "development" | "production") => boolean;
-    clearCache: (environment: "development" | "production") => Promise<void>;
+    cacheExists: (environment: "development" | "production", hash: string) => "exists" | "other-exists" | "does-not-exist";
+    clearCache: () => Promise<void>;
+    getConfig: (outDir: string, entryPoint: string, onProgressUpdate?: ((progress: number) => void) | undefined, options?: {
+        webpackOverride?: import("remotion").WebpackOverrideFn | undefined;
+        outDir?: string | undefined;
+        enableCaching?: boolean | undefined;
+        publicPath?: string | undefined;
+    } | undefined) => [string, webpack.Configuration];
 };
 export { bundle } from './bundle';
 export { webpack };

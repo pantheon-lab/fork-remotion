@@ -1,7 +1,11 @@
 import type { WebpackOverrideFn } from 'remotion';
-export declare const bundle: (entryPoint: string, onProgressUpdate?: ((progress: number) => void) | undefined, options?: {
+import webpack from 'webpack';
+declare type Options = {
     webpackOverride?: WebpackOverrideFn;
     outDir?: string;
     enableCaching?: boolean;
     publicPath?: string;
-}) => Promise<string>;
+};
+export declare const getConfig: (outDir: string, entryPoint: string, onProgressUpdate?: ((progress: number) => void) | undefined, options?: Options) => [string, webpack.Configuration];
+export declare const bundle: (entryPoint: string, onProgressUpdate?: ((progress: number) => void) | undefined, options?: Options) => Promise<string>;
+export {};

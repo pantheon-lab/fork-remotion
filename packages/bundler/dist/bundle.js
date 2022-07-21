@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.bundle = void 0;
+exports.bundle = exports.getConfig = void 0;
 const fs_1 = __importDefault(require("fs"));
 const os_1 = __importDefault(require("os"));
 const path_1 = __importDefault(require("path"));
@@ -34,24 +34,28 @@ const trimTrailingSlash = (p) => {
     }
     return p;
 };
+const getConfig = (outDir, entryPoint, onProgressUpdate, options) => {
+    var _a, _b;
+    return (0, webpack_config_1.webpackConfig)({
+        entry,
+        userDefinedComponent: entryPoint,
+        outDir,
+        environment: 'production',
+        webpackOverride: (_a = options === null || options === void 0 ? void 0 : options.webpackOverride) !== null && _a !== void 0 ? _a : remotion_1.Internals.defaultOverrideFunction,
+        onProgressUpdate,
+        enableCaching: (_b = options === null || options === void 0 ? void 0 : options.enableCaching) !== null && _b !== void 0 ? _b : remotion_1.Internals.DEFAULT_WEBPACK_CACHE_ENABLED,
+        maxTimelineTracks: 15,
+        // For production, the variables are set dynamically
+        envVariables: {},
+        entryPoints: [],
+    });
+};
+exports.getConfig = getConfig;
 const bundle = async (entryPoint, onProgressUpdate, options) => {
-    var _a, _b, _c, _d;
+    var _a, _b;
     const outDir = await prepareOutDir((_a = options === null || options === void 0 ? void 0 : options.outDir) !== null && _a !== void 0 ? _a : null);
-    const output = await promisified([
-        (0, webpack_config_1.webpackConfig)({
-            entry,
-            userDefinedComponent: entryPoint,
-            outDir,
-            environment: 'production',
-            webpackOverride: (_b = options === null || options === void 0 ? void 0 : options.webpackOverride) !== null && _b !== void 0 ? _b : remotion_1.Internals.defaultOverrideFunction,
-            onProgressUpdate,
-            enableCaching: (_c = options === null || options === void 0 ? void 0 : options.enableCaching) !== null && _c !== void 0 ? _c : remotion_1.Internals.DEFAULT_WEBPACK_CACHE_ENABLED,
-            maxTimelineTracks: 15,
-            // For production, the variables are set dynamically
-            envVariables: {},
-            entryPoints: [],
-        }),
-    ]);
+    const [, config] = (0, exports.getConfig)(outDir, entryPoint, onProgressUpdate, options);
+    const output = await promisified([config]);
     if (!output) {
         throw new Error('Expected webpack output');
     }
@@ -59,7 +63,7 @@ const bundle = async (entryPoint, onProgressUpdate, options) => {
     if (errors !== undefined && errors.length > 0) {
         throw new Error(errors[0].message + '\n' + errors[0].details);
     }
-    const baseDir = (_d = options === null || options === void 0 ? void 0 : options.publicPath) !== null && _d !== void 0 ? _d : '/';
+    const baseDir = (_b = options === null || options === void 0 ? void 0 : options.publicPath) !== null && _b !== void 0 ? _b : '/';
     const publicDir = '/' +
         [trimTrailingSlash(trimLeadingSlash(baseDir)), 'public']
             .filter(Boolean)

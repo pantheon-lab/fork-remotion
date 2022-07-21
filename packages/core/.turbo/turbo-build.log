@@ -1,5 +1,5 @@
-[36mremotion:build: [0mcache hit, replaying output [2m6c6746deef5fbdb5[0m
-[36mremotion:build: [0m
-[36mremotion:build: [0m> remotion@3.1.3 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/core
-[36mremotion:build: [0m> tsc -d
-[36mremotion:build: [0m
+[35mremotion:build: [0mcache hit, replaying output [2ma1bfc24c9b86f30a[0m
+[35mremotion:build: [0m
+[35mremotion:build: [0m> remotion@3.1.4 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/core
+[35mremotion:build: [0m> tsc -d
+[35mremotion:build: [0m

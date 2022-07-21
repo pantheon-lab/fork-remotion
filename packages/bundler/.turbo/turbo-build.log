@@ -1,5 +1,5 @@
-[35m@remotion/bundler:build: [0mcache hit, replaying output [2mb9e397132df79c2d[0m
-[35m@remotion/bundler:build: [0m
-[35m@remotion/bundler:build: [0m> @remotion/bundler@3.1.3 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/bundler
-[35m@remotion/bundler:build: [0m> tsc -d
-[35m@remotion/bundler:build: [0m
+[33m@remotion/bundler:build: [0mcache hit, replaying output [2mbc0d7d98bfadd695[0m
+[33m@remotion/bundler:build: [0m
+[33m@remotion/bundler:build: [0m> @remotion/bundler@3.1.4 build /Users/jackhuang/Documents/pantheonlab/fork-remotion/packages/bundler
+[33m@remotion/bundler:build: [0m> tsc -d
+[33m@remotion/bundler:build: [0m

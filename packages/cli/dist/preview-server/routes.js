@@ -25,8 +25,8 @@ const static404 = (response) => {
     response.end('The static/ prefix has been changed, this URL is no longer valid.');
 };
 const handleFallback = async (hash, _, response, getCurrentInputProps) => {
-    const edit = await editorGuess;
-    const displayName = (0, open_in_editor_1.getDisplayNameForEditor)(edit[0].command);
+    const [edit] = await editorGuess;
+    const displayName = (0, open_in_editor_1.getDisplayNameForEditor)(edit ? edit.command : null);
     response.setHeader('content-type', 'text/html');
     response.writeHead(200);
     response.end(bundler_1.BundlerInternals.indexHtml(hash, '/', displayName, getCurrentInputProps()));
